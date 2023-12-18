@@ -1,11 +1,15 @@
 package com.platzi.market.persistence.entity;
+
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "productos")
-@Data
+@Getter
+@Setter
 public class Producto {
 
     @Id
@@ -28,5 +32,9 @@ public class Producto {
     private Integer cantidadStock;
 
     private Boolean estado;
+
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    private Categoria categoria;
 
 }

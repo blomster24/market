@@ -1,13 +1,17 @@
 package com.platzi.market.persistence.entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "compras")
-@Data
+@Getter
+@Setter
 public class Compra {
 
     @Id
@@ -26,4 +30,10 @@ public class Compra {
     private String comentario;
     private String estado;
 
+    @ManyToOne
+    @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
+    private Cliente cliente;
+
+    @OneToMany(mappedBy = "compra")
+    private List<ComprasProducto> productos;
 }
