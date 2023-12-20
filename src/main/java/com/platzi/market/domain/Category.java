@@ -11,5 +11,4 @@ public class Category {
     private String category;
     private boolean active;
 
-
 }

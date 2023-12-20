@@ -1,15 +1,13 @@
 package com.platzi.market.persistence.entity;
 
-import lombok.Data;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "productos")
 @Getter
 @Setter
+@Entity
+@Table(name = "productos")
 public class Producto {
 
     @Id
